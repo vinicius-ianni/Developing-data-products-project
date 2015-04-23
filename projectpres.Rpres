@@ -1,0 +1,59 @@
+Orcs body mass index (OBMI) Calculator
+========================================================
+author: Vinicius Ianni
+date:  23-04-2015
+
+Introduction
+========================================================
+
+The Orcs body mass index of the (OBMI) is a measure of body fat created by me after being banned from strike groups the invading hordes of orcs during the wars in Elder Tale. 
+
+Attending both humans and orcs (usually renegades or slag in general) i've developed this system that calculates quickly (orcs are unpleasant, impatient and smelly) its fat index based on height and weight (similar to humans) that applies to male orcs (not met any orc female) adults.
+
+Some details
+========================================================
+
+The system is pretty similar as we calculate the human body mass, and the most siginificant changes resides in the values
+used to determine if the orc is undeweight and so on.
+
+Usually we see appearing orcs be fat when compared to a normal human, and this does not give us an accurate parameter on what would be normal or overweight.
+The years of famine that hit both humans and orcs were useful in order to determine what is to be below the ideal weight for an orc, many who died of starvation, appeared to be "strong" or what would be in the normal weight for a human (this in terms of muscle mass or physical constitution).
+
+Metrics used
+========================================================
+These data served as a basis for comparison with the previous period, where neither side was just way chronic hunger.
+Thus, able to define the following values:
+
+OBMI = Orcs Body Mass Index
+- OBMI below 25 Underweight
+- OBMI between 25.1 and 31.2 Normal weight
+- OBMI between 31.3 and 40.9 Overweight
+- OBMI above 41 Obese
+
+As you can notice, the values are larger than humans, but maintain the same height-weight ratio, so it is not difficult to use, if needed.
+
+Some calculus
+========================================================
+The formula for the calculation does not change if compared to that used by humans, as can be noted:
+
+OBMI = weight/( height^2 )
+
+Thus, a simple comparison of values between tracks previously determined and the calculation result gives us quickly the expected result (did I mention orcs are impatient and smelly?)
+
+========================================================
+```{r}
+OBMI<-function(weight,height) {weight/(height^2)}
+
+results<-function(weight,height){
+  OBMIvalue<-weight/(height^2)
+  ifelse(OBMIvalue<25,"Underweight",ifelse(OBMIvalue<25.1,"Normal weight",ifelse(OBMIvalue<31.3,"Overweight","Obese")))
+}
+```
+
+So we can quickly determine if you need a change in diet and prescribe an appropriate diet if necessary.
+(Believe me, will not like to know what they eat.)
+
+Conclusion
+========================================================
+
+I hope this simple, fast and cheap method help other renegades healers like me, need to survive in the world of tale elder, without wasting our druid healing knowledge or resorting to any kind of put our lives even more at risk.
